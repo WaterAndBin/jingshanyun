@@ -4,8 +4,8 @@ export default {
   routes: (_routes) => [
     {
       path: '/',
-      redirect: '/text',
-      component: async () => await import('~/pages/text/index.vue')
+      redirect: '/home',
+      component: async () => await import('~/pages/home')
     },
     ..._routes
   ]

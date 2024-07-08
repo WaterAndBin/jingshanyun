@@ -20,10 +20,13 @@ export default defineNuxtConfig({
     ],
     '@unocss/nuxt',
     // '@nuxtjs/eslint-module', //谨慎开启，会报错很多地方，主要用来检查一些函数是否用值,或者console，建议开发完之后使用
-    '@nuxtjs/svg-sprite',
+    'nuxt-icons',
     '@pinia-plugin-persistedstate/nuxt',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@vant/nuxt'
   ],
+
+  // plugins: [{ src: '@/plugins/vue-quill-editor', ssr: false }],
 
   /* 配置跨域代理 */
   nitro: {
@@ -59,7 +62,7 @@ export default defineNuxtConfig({
   },
 
   /* css */
-  css: ['~/styles/reset.css', '~/styles/comment.css'],
+  css: ['~/styles/reset.css', '~/styles/comment.scss'],
 
   // /* vue-tsc */
   // typescript: {
@@ -73,13 +76,13 @@ export default defineNuxtConfig({
   },
 
   /* svg配置 */
-  svgSprite: {
-    input: '~/src/assets/sprite/svg',
-    output: '~/src/assets/sprite/gen'
-  },
-  alias: {
-    '~/src/assets/sprite/gen': join(__dirname, 'src/assets/sprite/gen')
-  },
+  // svgSprite: {
+  //   input: '~/src/assets/sprite/svg',
+  //   output: '~/src/assets/sprite/gen'
+  // },
+  // alias: {
+  //   '~/src/assets/sprite/gen': join(__dirname, 'src/assets/sprite/gen')
+  // },
 
   /* 开启指定的地址 */
   devServer: {

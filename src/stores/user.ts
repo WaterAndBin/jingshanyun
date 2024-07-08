@@ -3,7 +3,8 @@ const useUserStore = defineStore('user', {
   persist: true,
   state: () => {
     return {
-      token: '测试。。。。。'
+      token: '',
+      userHeader: '/header.png' // 用户头像
     };
   },
   actions: {
