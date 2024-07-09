@@ -4,11 +4,11 @@
       <div class="h-full flex flex-col">
         <div class="flex-default flex-1 flex-col">
           <div
-            class="h-[82px] w-[82px] border-[0.5px] border-[rgb(0,0,0,0.09)] rounded-[16px] border-solid shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] flex-default mb-5"
+            class="mb-5 h-[82px] w-[82px] flex-default border-[0.5px] border-[rgb(0,0,0,0.09)] rounded-[16px] border-solid shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]"
           >
             TODO
           </div>
-          <div class="text-[18px] leading-[30.41px] mt-5 text-center">
+          <div class="mt-5 text-center text-[18px] leading-[30.41px]">
             <div>登录之后，</div>
             <div>即刻体验TODO</div>
           </div>
