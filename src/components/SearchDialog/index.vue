@@ -6,8 +6,8 @@
     :show-confirm-button="false"
     :close-on-click-overlay="true"
   >
-    <div class="h-60 flex flex-col">
-      <div>
+    <div class="h-60 flex flex-col overflow-auto">
+      <div class="min-h-12">
         <van-search
           v-model="keywords"
           placeholder="快速搜索"
@@ -15,7 +15,7 @@
           :clearable="false"
           left-icon=""
           right-icon="search"
-          class="w-full"
+          class="fixed w-full"
           @search="onSearch"
           @keyup.enter="onSearch"
         />
@@ -41,6 +41,9 @@
 <script lang="ts" setup>
 import type { TaskDataList } from '~/types/task';
 
+/* 仓库 */
+const taskStore = useTaskStore();
+
 const showDialog = ref<boolean>(false);
 /* 搜索结果 */
 const searchData = ref<TaskDataList[]>([]);
@@ -50,12 +53,7 @@ const keywords = ref<string>('');
 const isSearch = ref<boolean>(true);
 
 const onSearch = (): void => {
-  searchData.value = [
-    {
-      keywords: 'hallo,world',
-      id: 123123
-    }
-  ];
+  searchData.value = taskStore.taskLists;
   isSearch.value = true;
 };
 

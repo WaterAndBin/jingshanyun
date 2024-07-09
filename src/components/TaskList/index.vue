@@ -20,7 +20,7 @@
     </div>
     <div v-if="showDetail">
       <div class="h-[48px] flex-default bg-blue-100">模拟拖拽</div>
-      <div class="h-[40px] flex items-center">
+      <div class="h-[50px] flex items-center">
         <span class="flex-1">快捷编辑该事项</span>
         <span class="flex">
           <nuxt-icon name="taskList/task" filled class="mx-1 h-7 w-7" />
@@ -39,10 +39,10 @@
 <script lang="ts" setup>
 import type { TaskDataList } from '~/types/task';
 
-const showDetail = ref<boolean>(true);
+const showDetail = ref<boolean>(false);
 
 const _props = defineProps<{
   data: TaskDataList;
-  keywords: string | undefined;
+  keywords?: string | undefined;
 }>();
 </script>

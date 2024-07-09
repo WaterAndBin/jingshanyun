@@ -37,6 +37,7 @@
     "@typescript-eslint/parser": "^6.9.1",
     "@unocss/eslint-config": "^0.61.3",
     "@unocss/nuxt": "^0.61.3",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.1.1",
@@ -53,8 +54,7 @@
     "prettier": "^3.0.3",
     "quill": "^2.0.2",
     "typescript": "^5.2.2",
-    "vue": "latest",
-    "vue-quill-editor": "^3.0.6"
+    "vue": "latest"
   },
   "devDependencies": {
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",

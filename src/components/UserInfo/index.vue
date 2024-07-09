@@ -22,6 +22,7 @@
             v-for="(items, index) in listsData"
             :key="index"
             class="h-[50px] w-full flex-default text-[15px] hover:bg-gray-100"
+            @click="handleListsData(items)"
           >
             {{ items }}
           </div>
@@ -52,8 +53,30 @@ const showSheet = ref<boolean>(false);
 
 const listsData: string[] = ['服务与协议', '用户隐私', '清理缓存', '登出账号'];
 
+/**
+ * 展示
+ */
 const show = (): void => {
   showSheet.value = true;
+};
+
+/**
+ * 隐藏
+ */
+const hidden = (): void => {
+  showSheet.value = false;
+};
+
+/**
+ * 处理事件
+ */
+const handleListsData = (data: string): void => {
+  if (data === '登出账号') {
+    /* 重置仓库 */
+    userStore.$reset();
+    showSuccessToast('登出成功');
+    hidden();
+  }
 };
 
 defineExpose({

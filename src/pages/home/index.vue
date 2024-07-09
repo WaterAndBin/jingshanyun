@@ -19,13 +19,25 @@
           </div>
         </div>
         <div class="flex-[0.75]">
-          <div v-for="(items, index) in taskList" :key="index">
-            <TaskList :data="items"></TaskList>
+          <template v-if="taskStore.taskLists.length !== 0">
+            <div v-for="(items, index) in taskStore.taskLists" :key="index">
+              <TaskList :data="items"></TaskList>
+            </div>
+          </template>
+          <template v-else>
+            <div class="h-[56px] flex-default text-[22px] text-[rgba(0,0,0,0.45)]">暂无事项</div>
+          </template>
+          <div
+            class="h-[40px] flex items-center px-2 text-[rgba(0,122,255,1)]"
+            @click="nuxtApp?.$PublishEditorShow()"
+          >
+            <span class="text-3xl">+</span>
+            <span class="ml-3">添加事项</span>
           </div>
         </div>
       </div>
     </div>
-    <div v-else class="flex-default h-full flex-col text-[25px]">
+    <div v-else class="h-full flex-default flex-col text-[25px]">
       <span class="mb-3">请先登录</span>
       <button
         class="border-1 border-black rounded-4 border-solid bg-transparent p-4"
@@ -41,18 +53,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { TaskDataList } from '~/types/task';
-
 /* 仓库 */
 const userStore = useUserStore();
 const timeStore = useTimeStore();
+const taskStore = useTaskStore();
 
 /* dom */
 const loginRef = ref();
 const SearchDialogRef = ref();
-
-/* 事件列表 */
-const taskList = ref<TaskDataList[]>([]);
 
 const gotoLogin = (): void => {
   if (loginRef !== null) {
@@ -63,4 +71,6 @@ const gotoLogin = (): void => {
 onMounted(() => {
   timeStore.getTimeToday();
 });
+
+const nuxtApp = useNuxtApp();
 </script>

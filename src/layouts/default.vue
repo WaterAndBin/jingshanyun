@@ -13,7 +13,7 @@
       <!-- 发布 -->
       <van-tabbar-item>
         <client-only>
-          <nuxt-icon filled name="add" class="h-6 w-6" />
+          <nuxt-icon filled name="add" class="h-6 w-6" @click="PublishEditorRef.show()" />
         </client-only>
       </van-tabbar-item>
       <van-tabbar-item></van-tabbar-item>
@@ -33,6 +33,7 @@
     <UserInfo ref="UserInfoRef"></UserInfo>
     <!-- 富文本编辑器 -->
     <!-- <Editor></Editor> -->
+    <PublishEditor ref="PublishEditorRef"></PublishEditor>
   </div>
 </template>
 
@@ -43,4 +44,8 @@ const userStore = useUserStore();
 /* dom */
 const ListsRef = ref();
 const UserInfoRef = ref();
+const PublishEditorRef = ref();
+
+const nuxtApp = useNuxtApp();
+nuxtApp.provide('PublishEditorShow', () => PublishEditorRef.value.show());
 </script>
